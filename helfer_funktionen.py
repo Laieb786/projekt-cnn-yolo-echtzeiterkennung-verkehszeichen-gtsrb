@@ -5,7 +5,7 @@ import shutil
 
 #Funktion zum Entpacken und Importieren des Datensatzes
 def datensatz_entpacken_importieren():
-    ziel_verzeichnis = './ts43classes'
+    ziel_verzeichnis = './data'
     datensatz = 'valentynsichkar/yolo-v5-format-of-the-traffic-signs-dataset' 
     print(f"Datensatz {datensatz} wird heruntergeladen....")
 
