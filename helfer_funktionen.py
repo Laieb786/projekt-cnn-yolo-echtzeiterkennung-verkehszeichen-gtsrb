@@ -1,6 +1,7 @@
 import kaggle
 import zipfile
 import os
+import cv2
 import shutil
 
 #Funktion zum Entpacken und Importieren des Datensatzes
@@ -25,4 +26,7 @@ def datensatz_entpacken_importieren():
     shutil.rmtree('./ts_yolo_v5_format', ignore_errors=True)
     print("Import abgeschlossen.")
 
-#Funktion zum erstellen des dataset.yaml-Datei
+#Funktion zum Darstellen eines Bildes aus dem Datensatzes
+
+
+#Funktion zum erstellen des dataset.yaml-Datei aus der VOC.yaml-Datei
