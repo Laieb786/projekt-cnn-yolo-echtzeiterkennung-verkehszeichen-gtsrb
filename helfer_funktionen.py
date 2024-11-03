@@ -7,6 +7,7 @@ import cv2
 import shutil
 import re
 import numpy as np
+import yaml
 
 #Funktion zum Entpacken und Importieren des Datensatzes
 def datensatz_entpacken_importieren():
@@ -89,3 +90,9 @@ def plot_images_with_annotations(image_names, annotations_dir, input_shape):
 
     plt.tight_layout()
     plt.show()
+
+#Funktion zum Erstellen einer Datensatz-Konfigurations-Datei im .yaml-Format in dem Projektverzeichnis
+def write_yaml_to_file(py_obj,filename):
+    with open(f'{filename}.yaml', 'w',) as f :
+        yaml.dump(py_obj,f,sort_keys=False) 
+    print('Written to file successfully')
