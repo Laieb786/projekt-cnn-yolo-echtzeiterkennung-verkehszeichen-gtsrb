@@ -1,4 +1,5 @@
 from PIL import Image
+import matplotlib.pyplot as plt
 import kaggle
 import zipfile
 import os
@@ -41,5 +42,50 @@ def read_images(filenames, height=None, width=None):
 def images_to_array(images):
     return np.asarray([np.asarray(img) for img in images])
 
+#Funktion zum Testen der Annotationen auf die Bilder
+def plot_images_with_annotations(image_names, annotations_dir, input_shape):
+    fig = plt.figure(figsize=(8, 8))
+    rows, columns = 3, 4
+    num_images_to_display = min(8, len(image_names))
 
-#Funktion zum erstellen des dataset.yaml-Datei aus der VOC.yaml-Datei
+    for i in range(num_images_to_display):
+        img_path = image_names[i]
+        img = cv2.imread(img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        img_height, img_width = input_shape["height"], input_shape["width"]
+        
+        # Skaliere das Bild auf die festgelegte Größe
+        img = cv2.resize(img, (img_width, img_height))
+        
+        # Annotationen laden
+        annotation_path = os.path.join(annotations_dir, os.path.splitext(os.path.basename(img_path))[0] + '.txt')
+        if os.path.exists(annotation_path):
+            with open(annotation_path, 'r') as f:
+                for line in f:
+                    # YOLO-Format: <class_id> <x_center> <y_center> <width> <height>
+                    parts = line.strip().split()
+                    class_id = int(parts[0])
+                    x_center, y_center, width, height = map(float, parts[1:])
+
+                    # Umrechnung der Normalisierten Werte auf Bildkoordinaten
+                    x_center *= img_width
+                    y_center *= img_height
+                    width *= img_width
+                    height *= img_height
+
+                    # Berechne obere linke Ecke und untere rechte Ecke
+                    x1 = int(x_center - width / 2)
+                    y1 = int(y_center - height / 2)
+                    x2 = int(x_center + width / 2)
+                    y2 = int(y_center + height / 2)
+
+                    # Zeichne die Bounding Box und die Klassen-ID
+                    cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)  # Blaue Box
+                    cv2.putText(img, str(class_id), (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+
+        # Bild im Plot anzeigen
+        fig.add_subplot(rows, columns, i + 1)
+        plt.imshow(img)
+
+    plt.tight_layout()
+    plt.show()
