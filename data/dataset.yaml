@@ -1,49 +1,58 @@
-path: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data
-train: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\train
-val: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\validation
-test: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\test
+# Dataset Konfigurationsdatei für die Verkehrszeichenerkennung
+
+# Basisverzeichnis des Datasets
+path: "G:/Meine Ablage/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data"
+
+# Verzeichnisse für Training, Validierung und Test (relativ zum Basisverzeichnis)
+train: "images/train"
+val: "images/validation"
+test: "images/test"
+
+# Anzahl der Klassen
 nc: 43
+
+# Namen der Klassen als Liste
 names:
-  0: Geschwindigkeitsbegrenzung (20 km/h)
-  1: Geschwindigkeitsbegrenzung (30 km/h)
-  2: Geschwindigkeitsbegrenzung (50 km/h)
-  3: Geschwindigkeitsbegrenzung (60 km/h)
-  4: Geschwindigkeitsbegrenzung (70 km/h)
-  5: Geschwindigkeitsbegrenzung (80 km/h)
-  6: Ende der Geschwindigkeitsbegrenzung (80 km/h)
-  7: Geschwindigkeitsbegrenzung (100 km/h)
-  8: Geschwindigkeitsbegrenzung (120 km/h)
-  9: Ueberholverbot
-  10: Ueberholverbot fuer Fahrzeuge ueber 3,5 Tonnen
-  11: Vorfahrt an der Kreuzung
-  12: Vorfahrtsstrasse
-  13: Vorfahrt gewaehren
-  14: Stop
-  15: Keine Fahrzeuge
-  16: Verbot fuer Fahrzeuge > 3,5 Tonnen
-  17: Einfahrt verboten
-  18: Allgemeine Vorsicht
-  19: Gefaehrliche Kurve links
-  20: Gefaehrliche Kurve rechts
-  21: Doppelte Kurve
-  22: Unebene Fahrbahn
-  23: Rutschige Strasse
-  24: Fahrbahnverengung rechts
-  25: Baustelle
-  26: Ampel
-  27: Fussgaengerueberquerung
-  28: Kinderueberquerung
-  29: Radfahrerueberquerung
-  30: Vorsicht vor Eis/Schnee
-  31: Wildwechsel
-  32: Ende von Geschwindigkeits- und Ueberholverboten
-  33: Rechts abbiegen
-  34: Links abbiegen
-  35: Geradeaus
-  36: Geradeaus oder rechts
-  37: Geradeaus oder links
-  38: Rechts halten
-  39: Links halten
-  40: Kreisverkehr Pflicht
-  41: Ende des Ueberholverbots
-  42: Ende des Ueberholverbots fuer Fahrzeuge > 3,5 Tonnen
+  - Geschwindigkeitsbegrenzung (20 km/h)
+  - Geschwindigkeitsbegrenzung (30 km/h)
+  - Geschwindigkeitsbegrenzung (50 km/h)
+  - Geschwindigkeitsbegrenzung (60 km/h)
+  - Geschwindigkeitsbegrenzung (70 km/h)
+  - Geschwindigkeitsbegrenzung (80 km/h)
+  - Ende der Geschwindigkeitsbegrenzung (80 km/h)
+  - Geschwindigkeitsbegrenzung (100 km/h)
+  - Geschwindigkeitsbegrenzung (120 km/h)
+  - Ueberholverbot
+  - Ueberholverbot fuer Fahrzeuge ueber 3,5 Tonnen
+  - Vorfahrt an der Kreuzung
+  - Vorfahrtsstrasse
+  - Vorfahrt gewaehren
+  - Stop
+  - Keine Fahrzeuge
+  - Verbot fuer Fahrzeuge > 3,5 Tonnen
+  - Einfahrt verboten
+  - Allgemeine Vorsicht
+  - Gefaehrliche Kurve links
+  - Gefaehrliche Kurve rechts
+  - Doppelte Kurve
+  - Unebene Fahrbahn
+  - Rutschige Strasse
+  - Fahrbahnverengung rechts
+  - Baustelle
+  - Ampel
+  - Fussgaengerueberquerung
+  - Kinderueberquerung
+  - Radfahrerueberquerung
+  - Vorsicht vor Eis/Schnee
+  - Wildwechsel
+  - Ende von Geschwindigkeits- und Ueberholverboten
+  - Rechts abbiegen
+  - Links abbiegen
+  - Geradeaus
+  - Geradeaus oder rechts
+  - Geradeaus oder links
+  - Rechts halten
+  - Links halten
+  - Kreisverkehr Pflicht
+  - Ende des Ueberholverbots
+  - Ende des Ueberholverbots fuer Fahrzeuge > 3,5 Tonnen
