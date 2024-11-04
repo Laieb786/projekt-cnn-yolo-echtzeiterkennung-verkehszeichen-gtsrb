@@ -1,14 +1,49 @@
-
-# The root directory of the dataset
-# (!) Update the root path according to your location
-path: ..\..\Downloads\ts_yolo_v5_format\ts43classes
-
-
-train: images\train\      # train images (relative to 'path')
-val: images\validation\   # val images (relative to 'path')
-test: images\test\        # test images (relative to 'path')
-
-
-# Number of classes and their names
+path: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data
+train: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\train
+val: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\validation
+test: G:\Meine Ablage\projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb\data\images\test
 nc: 43
-names: [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42']
+names:
+  0: Geschwindigkeitsbegrenzung (20 km/h)
+  1: Geschwindigkeitsbegrenzung (30 km/h)
+  2: Geschwindigkeitsbegrenzung (50 km/h)
+  3: Geschwindigkeitsbegrenzung (60 km/h)
+  4: Geschwindigkeitsbegrenzung (70 km/h)
+  5: Geschwindigkeitsbegrenzung (80 km/h)
+  6: Ende der Geschwindigkeitsbegrenzung (80 km/h)
+  7: Geschwindigkeitsbegrenzung (100 km/h)
+  8: Geschwindigkeitsbegrenzung (120 km/h)
+  9: Ueberholverbot
+  10: Ueberholverbot fuer Fahrzeuge ueber 3,5 Tonnen
+  11: Vorfahrt an der Kreuzung
+  12: Vorfahrtsstrasse
+  13: Vorfahrt gewaehren
+  14: Stop
+  15: Keine Fahrzeuge
+  16: Verbot fuer Fahrzeuge > 3,5 Tonnen
+  17: Einfahrt verboten
+  18: Allgemeine Vorsicht
+  19: Gefaehrliche Kurve links
+  20: Gefaehrliche Kurve rechts
+  21: Doppelte Kurve
+  22: Unebene Fahrbahn
+  23: Rutschige Strasse
+  24: Fahrbahnverengung rechts
+  25: Baustelle
+  26: Ampel
+  27: Fussgaengerueberquerung
+  28: Kinderueberquerung
+  29: Radfahrerueberquerung
+  30: Vorsicht vor Eis/Schnee
+  31: Wildwechsel
+  32: Ende von Geschwindigkeits- und Ueberholverboten
+  33: Rechts abbiegen
+  34: Links abbiegen
+  35: Geradeaus
+  36: Geradeaus oder rechts
+  37: Geradeaus oder links
+  38: Rechts halten
+  39: Links halten
+  40: Kreisverkehr Pflicht
+  41: Ende des Ueberholverbots
+  42: Ende des Ueberholverbots fuer Fahrzeuge > 3,5 Tonnen
