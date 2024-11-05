@@ -1,0 +1,55 @@
+{
+  "os":  "Linux-6.1.85+-x86_64-with-glibc2.35",
+  "python":  "3.10.12",
+  "startedAt":  "2024-11-04T20:17:34.757110Z",
+  "args":  [
+    "--img",
+    "640",
+    "--batch",
+    "1",
+    "--epochs",
+    "1",
+    "--data",
+    "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data/dataset.yaml",
+    "--weights",
+    "yolov5mu.pt"
+  ],
+  "program":  "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py",
+  "codePath":  "yolov5/train.py",
+  "git":  {
+    "remote":  "https://github.com/Laieb786/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb.git",
+    "commit":  "83423fd63811f1b4e24e93ba602c545a69b19422"
+  },
+  "email":  "laieb.ahmed@gmail.com",
+  "root":  "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb",
+  "host":  "7496caa8722f",
+  "username":  "root",
+  "executable":  "/usr/bin/python3",
+  "codePathLocal":  "yolov5/train.py",
+  "cpu_count":  1,
+  "cpu_count_logical":  2,
+  "gpu":  "Tesla T4",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "120942624768",
+      "used":  "35233456128"
+    }
+  },
+  "memory":  {
+    "total":  "13609431040"
+  },
+  "cpu":  {
+    "count":  1,
+    "countLogical":  2
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Tesla T4",
+      "memoryTotal":  "16106127360",
+      "cudaCores":  2560,
+      "architecture":  "Turing"
+    }
+  ],
+  "cudaVersion":  "12.2"
+}

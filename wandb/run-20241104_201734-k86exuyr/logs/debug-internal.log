@@ -1,0 +1,16 @@
+{"time":"2024-11-04T20:17:34.769423162Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-04T20:17:34.770543039Z","level":"INFO","msg":"created symlink","path":"/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/wandb/run-20241104_201734-k86exuyr/logs/debug-core.log"}
+{"time":"2024-11-04T20:17:34.877983728Z","level":"INFO","msg":"created new stream","id":"k86exuyr"}
+{"time":"2024-11-04T20:17:34.878781234Z","level":"INFO","msg":"stream: started","id":"k86exuyr"}
+{"time":"2024-11-04T20:17:34.878810539Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"k86exuyr"}}
+{"time":"2024-11-04T20:17:34.878930472Z","level":"INFO","msg":"handler: started","stream_id":{"value":"k86exuyr"}}
+{"time":"2024-11-04T20:17:34.878959111Z","level":"INFO","msg":"sender: started","stream_id":"k86exuyr"}
+{"time":"2024-11-04T20:17:35.195968803Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-04T20:17:36.313530291Z","level":"INFO","msg":"stream: closing","id":"k86exuyr"}
+{"time":"2024-11-04T20:17:36.313723786Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-04T20:17:36.315591134Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-04T20:17:36.85042701Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-04T20:17:36.94025159Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"k86exuyr"}}
+{"time":"2024-11-04T20:17:36.940338507Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"k86exuyr"}}
+{"time":"2024-11-04T20:17:36.940520879Z","level":"INFO","msg":"sender: closed","stream_id":"k86exuyr"}
+{"time":"2024-11-04T20:17:36.941961231Z","level":"INFO","msg":"stream: closed","id":"k86exuyr"}

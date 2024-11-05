@@ -1,0 +1,16 @@
+{"time":"2024-11-04T17:26:04.797481859Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-04T17:26:04.799050452Z","level":"INFO","msg":"created symlink","path":"/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/wandb/run-20241104_172604-g4bjv44p/logs/debug-core.log"}
+{"time":"2024-11-04T17:26:04.907924831Z","level":"INFO","msg":"created new stream","id":"g4bjv44p"}
+{"time":"2024-11-04T17:26:04.908773274Z","level":"INFO","msg":"stream: started","id":"g4bjv44p"}
+{"time":"2024-11-04T17:26:04.908808953Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"g4bjv44p"}}
+{"time":"2024-11-04T17:26:04.908922081Z","level":"INFO","msg":"handler: started","stream_id":{"value":"g4bjv44p"}}
+{"time":"2024-11-04T17:26:04.908947505Z","level":"INFO","msg":"sender: started","stream_id":"g4bjv44p"}
+{"time":"2024-11-04T17:26:10.17839255Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-04T17:26:11.182448023Z","level":"INFO","msg":"stream: closing","id":"g4bjv44p"}
+{"time":"2024-11-04T17:26:11.182585042Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-04T17:26:11.183960147Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-04T17:26:12.651875826Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-04T17:26:12.775080063Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"g4bjv44p"}}
+{"time":"2024-11-04T17:26:12.775120926Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"g4bjv44p"}}
+{"time":"2024-11-04T17:26:12.775185441Z","level":"INFO","msg":"sender: closed","stream_id":"g4bjv44p"}
+{"time":"2024-11-04T17:26:12.780141004Z","level":"INFO","msg":"stream: closed","id":"g4bjv44p"}

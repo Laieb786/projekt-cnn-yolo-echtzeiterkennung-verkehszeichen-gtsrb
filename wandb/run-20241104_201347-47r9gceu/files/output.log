@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 986, in <module>
+    main(opt)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 688, in main
+    train(opt.hyp, opt, device, callbacks)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 215, in train
+    ckpt = torch.load(weights, map_location="cpu")  # load checkpoint to CPU to avoid CUDA memory leak
+  File "/usr/local/lib/python3.10/dist-packages/ultralytics/utils/patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'yolov5mu.pt.pt'

@@ -1,0 +1,15 @@
+Overriding model.yaml nc=80 with nc=43
+
+                 from  n    params  module                                  arguments
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 986, in <module>
+    main(opt)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 688, in main
+    train(opt.hyp, opt, device, callbacks)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 216, in train
+    model = Model(cfg or ckpt["model"].yaml, ch=3, nc=nc, anchors=hyp.get("anchors")).to(device)  # create
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/models/yolo.py", line 241, in __init__
+    self.model, self.save = parse_model(deepcopy(self.yaml), ch=[ch])  # model, savelist
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/models/yolo.py", line 381, in parse_model
+    d["anchors"],
+KeyError: 'anchors'

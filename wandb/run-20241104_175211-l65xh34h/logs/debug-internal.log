@@ -1,0 +1,18 @@
+{"time":"2024-11-04T17:52:11.375875674Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-04T17:52:11.377439399Z","level":"INFO","msg":"created symlink","path":"/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/wandb/run-20241104_175211-l65xh34h/logs/debug-core.log"}
+{"time":"2024-11-04T17:52:11.485513182Z","level":"INFO","msg":"created new stream","id":"l65xh34h"}
+{"time":"2024-11-04T17:52:11.486314452Z","level":"INFO","msg":"stream: started","id":"l65xh34h"}
+{"time":"2024-11-04T17:52:11.486352868Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"l65xh34h"}}
+{"time":"2024-11-04T17:52:11.486532412Z","level":"INFO","msg":"handler: started","stream_id":{"value":"l65xh34h"}}
+{"time":"2024-11-04T17:52:11.486560319Z","level":"INFO","msg":"sender: started","stream_id":"l65xh34h"}
+{"time":"2024-11-04T17:52:11.880256067Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-04T19:14:42.478292305Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-11-04T19:22:30.240925448Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-04T19:22:30.241739855Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-04T19:22:31.243057816Z","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"saving job artifact","runtime_seconds":0.743318133}],"total_operations":1}}
+{"time":"2024-11-04T19:22:31.990148621Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-04T19:22:33.325183996Z","level":"INFO","msg":"stream: closing","id":"l65xh34h"}
+{"time":"2024-11-04T19:22:33.325294017Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"l65xh34h"}}
+{"time":"2024-11-04T19:22:33.325372892Z","level":"INFO","msg":"sender: closed","stream_id":"l65xh34h"}
+{"time":"2024-11-04T19:22:33.32535162Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"l65xh34h"}}
+{"time":"2024-11-04T19:22:33.32667919Z","level":"INFO","msg":"stream: closed","id":"l65xh34h"}

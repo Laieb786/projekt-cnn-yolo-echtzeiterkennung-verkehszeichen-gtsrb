@@ -1,0 +1,12 @@
+
+Dataset not found ⚠️, missing paths ['/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/G:/Meine Ablage/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data/images/validation']
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 986, in <module>
+    main(opt)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 819, in main
+    results = train(hyp.copy(), opt, device, callbacks)
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/train.py", line 203, in train
+    data_dict = data_dict or check_dataset(data)  # check if None
+  File "/content/drive/MyDrive/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/yolov5/utils/general.py", line 565, in check_dataset
+    raise Exception("Dataset not found ❌")
+Exception: Dataset not found ❌
