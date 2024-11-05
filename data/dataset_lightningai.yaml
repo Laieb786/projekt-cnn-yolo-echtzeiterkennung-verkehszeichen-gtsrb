@@ -1,0 +1,49 @@
+path: /teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data
+train: /teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data/images/train
+val: /teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data/images/validation
+test: /teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data/images/test
+nc: 43
+names:
+- Geschwindigkeitsbegrenzung (20 km/h)
+- Geschwindigkeitsbegrenzung (30 km/h)
+- Geschwindigkeitsbegrenzung (50 km/h)
+- Geschwindigkeitsbegrenzung (60 km/h)
+- Geschwindigkeitsbegrenzung (70 km/h)
+- Geschwindigkeitsbegrenzung (80 km/h)
+- Ende der Geschwindigkeitsbegrenzung (80 km/h)
+- Geschwindigkeitsbegrenzung (100 km/h)
+- Geschwindigkeitsbegrenzung (120 km/h)
+- Ueberholverbot
+- Ueberholverbot fuer Fahrzeuge ueber 3,5 Tonnen
+- Vorfahrt an der Kreuzung
+- Vorfahrtsstrasse
+- Vorfahrt gewaehren
+- Stop
+- Keine Fahrzeuge
+- Verbot fuer Fahrzeuge > 3,5 Tonnen
+- Einfahrt verboten
+- Allgemeine Vorsicht
+- Gefaehrliche Kurve links
+- Gefaehrliche Kurve rechts
+- Doppelte Kurve
+- Unebene Fahrbahn
+- Rutschige Strasse
+- Fahrbahnverengung rechts
+- Baustelle
+- Ampel
+- Fussgaengerueberquerung
+- Kinderueberquerung
+- Radfahrerueberquerung
+- Vorsicht vor Eis/Schnee
+- Wildwechsel
+- Ende von Geschwindigkeits- und Ueberholverboten
+- Rechts abbiegen
+- Links abbiegen
+- Geradeaus
+- Geradeaus oder rechts
+- Geradeaus oder links
+- Rechts halten
+- Links halten
+- Kreisverkehr Pflicht
+- Ende des Ueberholverbots
+- Ende des Ueberholverbots fuer Fahrzeuge > 3,5 Tonnen

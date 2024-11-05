@@ -93,7 +93,7 @@ def plot_images_with_annotations(image_names, annotations_dir, input_shape):
 
 #Funktion zum Erstellen einer Datensatz-Konfigurations-Datei im .yaml-Format in dem Projektverzeichnis
 def write_yaml_to_file(py_obj, filename):
-    save_path = 'G:/Meine Ablage/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data'
+    save_path = '/teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data'
     full_path = os.path.join(save_path, f'{filename}.yaml')
     with open(full_path, 'w') as f:
         yaml.dump(py_obj, f, sort_keys=False)
