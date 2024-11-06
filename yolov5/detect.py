@@ -27,7 +27,7 @@ Usage - formats:
                                  yolov5s_edgetpu.tflite     # TensorFlow Edge TPU
                                  yolov5s_paddle_model       # PaddlePaddle
 """
-#Anpassung, damit außerhalb von WindowsOS trainirtes Modell funktioniert (hier Ubuntu)
+#Anpassung, damit außerhalb von WindowsOS trainierte Modelle auch auf WindowsOS laufen
 import pathlib
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
