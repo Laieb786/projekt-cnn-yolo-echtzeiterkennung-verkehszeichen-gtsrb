@@ -6,123 +6,94 @@ import zipfile
 import os
 import cv2
 import shutil
-import re
 import numpy as np
 import yaml
 
-
-#Funktion zum Entpacken und Importieren des Datensatzes
+# Funktion zum Entpacken und Importieren des Datensatzes
 def datensatz_entpacken_importieren():
     ziel_verzeichnis = './data'
-    datensatz = 'valentynsichkar/yolo-v5-format-of-the-traffic-signs-dataset' 
-    print(f"Datensatz {datensatz} wird heruntergeladen....")
+    datensatz = 'valentynsichkar/yolo-v5-format-of-the-traffic-signs-dataset'
     kaggle.api.dataset_download_files(datensatz, path='./', unzip=False)
-    zip_pfad = './yolo-v5-format-of-the-traffic-signs-dataset.zip'
-    with zipfile.ZipFile(zip_pfad, 'r') as zip_ref:
-        print("Verzeichnis 'ts43classes' wird entpackt.... ")
-        for member in zip_ref.namelist():
-            if 'ts43classes/' in member:
-                zip_ref.extract(member, './')
+    with zipfile.ZipFile('yolo-v5-format-of-the-traffic-signs-dataset.zip', 'r') as zip_ref:
+        zip_ref.extractall('./')
     if os.path.exists('./ts_yolo_v5_format/ts43classes'):
         shutil.move('./ts_yolo_v5_format/ts43classes', ziel_verzeichnis)
-        print(f"Verzeichnis 'ts43classes' erfolgreich nach {ziel_verzeichnis} verschoben.")
-    os.remove(zip_pfad)
+    os.remove('yolo-v5-format-of-the-traffic-signs-dataset.zip')
     shutil.rmtree('./ts_yolo_v5_format', ignore_errors=True)
-    print("Import abgeschlossen.")
 
-
-#Funktion zum Einlesen des Pfades und den Dateinamen
+# Funktion zum Einlesen der Dateinamen
 def get_filenames(filepath):
-    return [os.path.join(filepath, filename) for filename in os.listdir(filepath)]
+    return [os.path.join(filepath, f) for f in os.listdir(filepath)]
 
-
-#Funktion zum Einlesen der Bilder 
+# Funktion zum Einlesen der Bilder
 def read_images(filenames, height=None, width=None):
-    images = [Image.open(filename) for filename in filenames]
-    if (not height is None) and (not width is None):
-        images = [img.resize((width, height)) for img in images]
+    images = []
+    for filename in filenames:
+        img = Image.open(filename)
+        if height and width:
+            img = img.resize((width, height))
+        images.append(img)
     return images
 
-
-#Funktion zum konvertieren eine Liste von Bildern in einem NumPy-Array
+# Funktion zum Konvertieren einer Liste von Bildern in ein NumPy-Array
 def images_to_array(images):
-    return np.asarray([np.asarray(img) for img in images])
+    return np.array([np.array(img) for img in images])
 
-
-#Funktion zum Testen der Annotationen auf die Bilder
+# Funktion zum Plotten von Bildern mit Annotationen
 def plot_images_with_annotations(image_names, annotations_dir, input_shape):
     fig = plt.figure(figsize=(8, 8))
-    rows, columns = 3, 4
-    num_images_to_display = min(8, len(image_names))
-    for i in range(num_images_to_display):
-        img_path = image_names[i]
+    for i, img_path in enumerate(image_names[:8]):
         img = cv2.imread(img_path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img_height, img_width = input_shape["height"], input_shape["width"]
-        img = cv2.resize(img, (img_width, img_height))
-        #Annotationen laden
+        img = cv2.resize(img, (input_shape["width"], input_shape["height"]))
+        # Annotationen laden
         annotation_path = os.path.join(annotations_dir, os.path.splitext(os.path.basename(img_path))[0] + '.txt')
         if os.path.exists(annotation_path):
             with open(annotation_path, 'r') as f:
                 for line in f:
-                    #YOLO-Format: <class_id> <x_center> <y_center> <width> <height>
                     parts = line.strip().split()
                     class_id = int(parts[0])
                     x_center, y_center, width, height = map(float, parts[1:])
-                    #Umrechnung der Normalisierten Werte auf Bildkoordinaten
-                    x_center *= img_width
-                    y_center *= img_height
-                    width *= img_width
-                    height *= img_height
-                    #Berechne obere linke Ecke und untere rechte Ecke
+                    x_center *= img.shape[1]
+                    y_center *= img.shape[0]
+                    width *= img.shape[1]
+                    height *= img.shape[0]
                     x1 = int(x_center - width / 2)
                     y1 = int(y_center - height / 2)
                     x2 = int(x_center + width / 2)
                     y2 = int(y_center + height / 2)
-                    #Zeichne die Bounding Box und die Klassen-ID
-                    cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)  # Blaue Box
+                    cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)
                     cv2.putText(img, str(class_id), (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
-        #Bild im Plot anzeigen
-        fig.add_subplot(rows, columns, i + 1)
+        fig.add_subplot(3, 4, i + 1)
         plt.imshow(img)
     plt.tight_layout()
     plt.show()
 
-
-#Funktion zum Erstellen einer Datensatz-Konfigurations-Datei im .yaml-Format in dem Projektverzeichnis
+# Funktion zum Erstellen einer YAML-Datei
 def write_yaml_to_file(py_obj, filename):
-    save_path = '/teamspace/studios/this_studio/projekt-cnn-yolo-echtzeiterkennung-verkehszeichen-gtsrb/data'
-    full_path = os.path.join(save_path, f'{filename}.yaml')
-    with open(full_path, 'w') as f:
-        yaml.dump(py_obj, f, sort_keys=False)
-    print(f'Datei wurde erfolgreich erstellt in: {full_path}')
+    with open(f'{filename}.yaml', 'w') as f:
+        yaml.dump(py_obj, f)
 
-
-#Funktion zum Plotten der Verteilung der Klassen
+# Funktion zum Plotten der Klassenverteilung
 def plot_class_distribution(label_path, class_names, output_path):
-    #Zähler für die Anzahl der Bilder pro Klasse
     class_counts = Counter()
-    #Alle Label-Dateien durchgehen und die Klassen zählen
     for label_file in os.listdir(label_path):
         if label_file.endswith(".txt"):
             with open(os.path.join(label_path, label_file), 'r') as file:
                 for line in file:
                     class_id = int(line.split()[0])
                     class_counts[class_id] += 1
-    classes = [f"{i} - {class_names[i]}" for i in range(len(class_names))]
-    counts = [class_counts[i] for i in range(len(class_names))]
-    #Plotten der Ergebnisse
+    classes = [class_names[i] for i in range(len(class_names))]
+    counts = [class_counts.get(i, 0) for i in range(len(class_names))]
     plt.figure(figsize=(15, 20))
     bars = plt.barh(classes, counts, color='skyblue')
     plt.xlabel('Anzahl der Bilder')
     plt.ylabel('Klassen')
     plt.title('Anzahl der Bilder pro Klasse')
-    #Füge die Anzahl am Ende jeder Säule hinzu
-    for bar in bars:
-        width = bar.get_width()
-        plt.text(width, bar.get_y() + bar.get_height()/2, 
-                f'{int(width)}', 
-                ha='left', va='center', fontweight='bold')
+    # Anzahl der Bilder an den Balken anzeigen
+    for bar, count in zip(bars, counts):
+        plt.text(count, bar.get_y() + bar.get_height()/2, str(count), va='center')
     plt.tight_layout()
     plt.savefig(os.path.join(output_path, 'labels_.jpg'), dpi=300)
     plt.show()
+
