@@ -29,10 +29,10 @@ def copy_images_and_convert_annotations(df, split_type, base_image_dir):
             #Konvertiere Annotationen ins YOLO-Format
             label_filename = os.path.basename(img_filename).replace('.ppm', '.txt').replace('.png', '.txt')
             with open(f"dataset/labels/{split_type}/{label_filename}", 'w') as f:
-                x_center = (row['Roi.X1'] + row['Roi.X2']) / 2 / row['Width']
-                y_center = (row['Roi.Y1'] + row['Roi.Y2']) / 2 / row['Height']
-                width = (row['Roi.X2'] - row['Roi.X1']) / row['Width']
-                height = (row['Roi.Y2'] - row['Roi.Y1']) / row['Height']
+                x_center = (row['Roi.X1'] + row['Roi.X2']) / 2 / row['Width'] #Im Zähler wird der Mittelpunkt der Bounding Box berechnet, im Nenner wird dann der Mittelpnkt normalisiert
+                y_center = (row['Roi.Y1'] + row['Roi.Y2']) / 2 / row['Height'] #Im Zähler wird der Mittelpunkt der Bounding Box berechnet, im Nenner wird dann Normalisiert
+                width = (row['Roi.X2'] - row['Roi.X1']) / row['Width'] #Im Zähler wird die Breite der Bounding Box berechnet, im Nenner wird dann Normalisiert
+                height = (row['Roi.Y2'] - row['Roi.Y1']) / row['Height'] #Im Zähler wird die Höhe der Bounding Box berechnet, im Nenner wird dann Normalisiert
                 f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
         else:
             print(f"Datei nicht gefunden: {src_img_path}")
