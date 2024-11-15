@@ -1,25 +1,43 @@
 from PIL import Image
 from collections import Counter
 import matplotlib.pyplot as plt
-import kaggle
-import zipfile
 import os
 import cv2
 import shutil
 import numpy as np
 import yaml
 
-# Funktion zum Entpacken und Importieren des Datensatzes
-def datensatz_entpacken_importieren():
-    ziel_verzeichnis = './data'
-    datensatz = 'valentynsichkar/yolo-v5-format-of-the-traffic-signs-dataset'
-    kaggle.api.dataset_download_files(datensatz, path='./', unzip=False)
-    with zipfile.ZipFile('yolo-v5-format-of-the-traffic-signs-dataset.zip', 'r') as zip_ref:
-        zip_ref.extractall('./')
-    if os.path.exists('./ts_yolo_v5_format/ts43classes'):
-        shutil.move('./ts_yolo_v5_format/ts43classes', ziel_verzeichnis)
-    os.remove('yolo-v5-format-of-the-traffic-signs-dataset.zip')
-    shutil.rmtree('./ts_yolo_v5_format', ignore_errors=True)
+#Funktion zum Entpacken und Importieren des Datensatzes
+def copy_images_and_convert_annotations(df, split_type, base_image_dir):
+    copied_files = 0  #Zähler für kopierte Dateien
+    for _, row in df.iterrows():
+        class_id = row['ClassId']
+        img_filename = row['Path'] if 'Path' in row else row['Filename']
+        #Überprüfen, ob der Pfad in der CSV-Datei bereits "Train/" oder "Test/" enthält
+        if split_type == "test":
+            src_img_path = os.path.join(base_image_dir, img_filename.split('/')[-1])  # nur den Dateinamen verwenden
+        else:
+            #Zugriff auf die Unterordner für den Trainings- und Validierungssplit
+            src_img_path = os.path.join(base_image_dir, str(class_id), img_filename.split('/')[-1])
+        #Überprüfen, ob die Datei existiert
+        if os.path.exists(src_img_path):
+            #Zielpfad für das Bild
+            dest_img_path = os.path.join(f"dataset/images/{split_type}", os.path.basename(img_filename))
+            #Kopiere das Bild
+            shutil.copyfile(src_img_path, dest_img_path)
+            copied_files += 1
+            #Konvertiere Annotationen ins YOLO-Format
+            label_filename = os.path.basename(img_filename).replace('.ppm', '.txt').replace('.png', '.txt')
+            with open(f"dataset/labels/{split_type}/{label_filename}", 'w') as f:
+                x_center = (row['Roi.X1'] + row['Roi.X2']) / 2 / row['Width']
+                y_center = (row['Roi.Y1'] + row['Roi.Y2']) / 2 / row['Height']
+                width = (row['Roi.X2'] - row['Roi.X1']) / row['Width']
+                height = (row['Roi.Y2'] - row['Roi.Y1']) / row['Height']
+                f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
+        else:
+            print(f"Datei nicht gefunden: {src_img_path}")
+    print(f"{copied_files} Dateien wurden für den Split '{split_type}' kopiert.")
+
 
 # Funktion zum Einlesen der Dateinamen
 def get_filenames(filepath):
