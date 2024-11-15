@@ -1,0 +1,19 @@
+# Ignoriere Daten- und große Verzeichnisse
+dataset/
+
+# Modellgewichte und große Dateien
+*.h5
+*.hdf5
+*.ckpt
+*.pt
+*.pth
+
+# Temporäre Dateien und Cache
+__pycache__/
+*.log
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Betriebssystemspezifische Dateien
+.vscode/
