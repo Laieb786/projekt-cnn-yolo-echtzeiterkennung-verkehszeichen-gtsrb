@@ -28,9 +28,9 @@ Usage - formats:
                                  yolov5s_paddle_model       # PaddlePaddle
 """
 #Anpassung, damit außerhalb von WindowsOS trainierte Modelle auch auf WindowsOS laufen
-import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+#import pathlib
+#temp = pathlib.PosixPath
+#pathlib.PosixPath = pathlib.WindowsPath
 
 import argparse
 import csv
